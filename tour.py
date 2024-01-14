@@ -8,6 +8,8 @@ class _Tour:
         self.tourists = tourists
         self.period = period  
         self.cost, self.currency = self.calculateCost()
+        self.ensurance = False
+        self.guided = False
     def calculateCost(self):
         for destination_tour in _destinations:
             if destination_tour["name"] == self.destination:
@@ -27,14 +29,14 @@ class TourBuilder:
     def __init__(self,destination,name,tourists,period):
         self._tour = _Tour(destination,name,tourists,period)
     def withEnsurance(self):
-        ensurance = True
+        self._tour.ensurance = True
         self._tour.cost += self._tour.cost * 0.05
         return self
   #def withEnsurance(self):
   #  ???
   #  return self 
     def withGuide(self):
-        guided = True
+        self._tour.guided = True
         self._tour.cost += 100
         return self        
     def build(self):
