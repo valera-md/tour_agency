@@ -9,4 +9,12 @@ print(f'Tour name: "{tour.name}"')
 for tourist in tour.tourists:
     print(tourist)
 print(f"Period: {tour.period}")
-print(f"Total price: {Money(tour.cost, tour.currency)}")
+if tour.ensurance == True:
+    ensurance = "with"
+else:
+    ensurance = "without"
+if tour.guided == True:
+    guide = "with"
+else:
+    guide = "without"
+print(f"Total price: {Money(tour.cost, tour.currency)} {ensurance} ensurance, {guide} guide.")
